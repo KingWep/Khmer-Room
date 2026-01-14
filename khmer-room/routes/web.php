@@ -28,3 +28,9 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('pages.RegisterPage');
 });
+Route::get('/dashboard', function () {
+    return view('layouts.LayoutsAdmin');
+});
+Route::get('/tenants', function () {
+    return view('admin.TenantsPage');
+});
