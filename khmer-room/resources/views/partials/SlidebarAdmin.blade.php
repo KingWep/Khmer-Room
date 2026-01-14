@@ -15,10 +15,10 @@
                <span class="material-symbols-outlined text-[#658683] group-hover:text-primary">dashboard</span>
                <span class="text-[#121717] dark:text-gray-200 text-sm font-medium">ផ្ទាំងគ្រប់គ្រង</span>
             </a>
-            <a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary/10 text-primary border border-primary/20"
+            <a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-background-light dark:hover:bg-[#233d3a] transition-colors group"
                href="/tenants">
-               <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
-               <span class="text-sm font-bold">បញ្ជីអ្នកជួល</span>
+               <span class="material-symbols-outlined text-[#658683] group-hover:text-primary">group</span>
+               <span class="text-[#121717] dark:text-gray-200 text-sm font-medium">បញ្ជីអ្នកជួល</span>
             </a>
             <a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-background-light dark:hover:bg-[#233d3a] transition-colors group"
                href="#">
@@ -56,3 +56,30 @@
         </div>
     </div>
 </aside>
+
+
+
+<script>
+  // Select all sidebar links
+  const sidebarLinks = document.querySelectorAll('aside nav a');
+
+  sidebarLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault(); // Prevent default navigation (optional, remove if actual navigation happens)
+
+      // Remove active classes from all links
+      sidebarLinks.forEach(l => {
+        l.classList.remove('bg-primary/10', 'text-primary', 'border', 'border-primary/20', 'font-bold');
+        l.classList.add('hover:bg-background-light', 'dark:hover:bg-[#233d3a]', 'text-[#121717]', 'dark:text-gray-200', 'font-medium');
+      });
+
+      // Add active classes to clicked link
+      this.classList.add('bg-primary/10', 'text-primary', 'border', 'border-primary/20', 'font-bold');
+      this.classList.remove('hover:bg-background-light', 'dark:hover:bg-[#233d3a]', 'text-[#121717]', 'dark:text-gray-200', 'font-medium');
+
+      // Optional: Navigate to the link's href
+      window.location.href = this.href;
+    });
+  });
+</script>
+
