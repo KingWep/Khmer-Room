@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('rentals', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('room_id')->constrained();
+            $table->foreignId('tenant_id')->constrained()->cascadeOnDelete();
+            $table->date('move_in_date');
+            $table->date('move_out_date')->nullable();
+            $table->decimal('rent_amount',10,2);
+            $table->enum('status', ['ongoing', 'completed', 'cancelled'])->default('ongoing');
             $table->timestamps();
         });
     }

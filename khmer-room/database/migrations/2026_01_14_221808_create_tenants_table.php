@@ -13,10 +13,13 @@ return new class extends Migration
     {
         Schema::create('tenants', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
+            $table->string('phone')->unique();
+            $table->text('address');
+            $table->enum('gender', ['male', 'female', 'other']);
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      */
